@@ -20,7 +20,7 @@ jobs:
           wget https://apt.devkitpro.org/install-devkitpro-pacman
           chmod +x install-devkitpro-pacman
           sudo ./install-devkitpro-pacman
-          sudo dkp-pacman -S --noconfirm devkitARM libnds ds-tools
+          sudo dkp-pacman -S --noconfirm devkitARM libnds
 
       - name: Build
         env:
