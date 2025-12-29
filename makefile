@@ -13,13 +13,13 @@ DATA    :=
 GRAPHICS :=
 
 #---------------------------------------------------------------------------------
-# devkitPro
+# devkitPro environment
 #---------------------------------------------------------------------------------
 ifndef DEVKITPRO
 $(error DEVKITPRO is not set)
 endif
 
-include $(DEVKITPRO)/libnds/libnds_rules
+include $(DEVKITPRO)/libnds/nds_rules
 
 #---------------------------------------------------------------------------------
 # Compiler flags
