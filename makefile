@@ -1,29 +1,28 @@
 #---------------------------------------------------------------------------------
-# Basic configuration
+# Project name
 #---------------------------------------------------------------------------------
-TARGET      := ds-game
-BUILD       := build
-SOURCES     := source
-INCLUDES    :=
-DATA        :=
-GRAPHICS   :=
-ARCH        := -mthumb -mthumb-interwork
+TARGET := ds-game
 
 #---------------------------------------------------------------------------------
-# devkitPro paths
+# Directories
+#---------------------------------------------------------------------------------
+BUILD   := build
+SOURCES := source
+INCLUDES :=
+DATA    :=
+GRAPHICS :=
+
+#---------------------------------------------------------------------------------
+# devkitPro
 #---------------------------------------------------------------------------------
 ifndef DEVKITPRO
-$(error "Please set DEVKITPRO in your environment. export DEVKITPRO=<path>")
+$(error DEVKITPRO is not set)
 endif
 
-include $(DEVKITPRO)/libnds_rules
+include $(DEVKITPRO)/libnds/libnds_rules
 
 #---------------------------------------------------------------------------------
 # Compiler flags
 #---------------------------------------------------------------------------------
 CFLAGS   += -O2 -Wall
 CXXFLAGS += -O2 -Wall
-
-#---------------------------------------------------------------------------------
-# Build rules
-#---------------------------------------------------------------------------------
