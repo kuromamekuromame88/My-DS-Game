@@ -22,7 +22,11 @@ jobs:
           sudo ./install-devkitpro-pacman
 
           sudo dkp-pacman -Syu --noconfirm
-          sudo dkp-pacman -S --noconfirm devkitARM libnds
+          sudo dkp-pacman -S --noconfirm devkitARM libnds libnds-dev
+
+      - name: Check libnds
+        run: |
+          ls /opt/devkitpro/libnds
 
       - name: Build
         env:
