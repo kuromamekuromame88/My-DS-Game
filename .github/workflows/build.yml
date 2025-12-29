@@ -1,0 +1,35 @@
+name: Build Nintendo DS ROM
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install devkitPro
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget xz-utils
+          wget https://apt.devkitpro.org/install-devkitpro-pacman
+          chmod +x install-devkitpro-pacman
+          sudo ./install-devkitpro-pacman
+          sudo dkp-pacman -S --noconfirm devkitARM libnds ds-tools
+
+      - name: Build
+        env:
+          DEVKITPRO: /opt/devkitpro
+          DEVKITARM: /opt/devkitpro/devkitARM
+        run: make
+
+      - name: Upload NDS
+        uses: actions/upload-artifact@v4
+        with:
+          name: nds-rom
+          path: "*.nds"
