@@ -22,13 +22,14 @@ jobs:
           sudo ./install-devkitpro-pacman
 
           sudo dkp-pacman -Syu --noconfirm
-          sudo dkp-pacman -S --noconfirm nds-dev
+          sudo dkp-pacman -S --noconfirm devkitARM libnds
 
       - name: Build
         env:
           DEVKITPRO: /opt/devkitpro
           DEVKITARM: /opt/devkitpro/devkitARM
         run: |
+          ls /opt/devkitpro/libnds
           make
 
       - name: Upload ROM
