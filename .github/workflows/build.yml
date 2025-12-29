@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # ⭐ devkitPro公式セットアップ
+      # devkitPro 公式 Action（← 大文字注意）
       - name: Setup devkitPro
         uses: devkitPro/setup-devkitpro@v1
         with:
