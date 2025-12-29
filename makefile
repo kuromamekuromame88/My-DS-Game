@@ -19,7 +19,7 @@ ifndef DEVKITPRO
 $(error DEVKITPRO is not set)
 endif
 
-include $(DEVKITPRO)/libnds/nds_rules
+include $(DEVKITPRO)/libnds/nds_rules.mk
 
 #---------------------------------------------------------------------------------
 # Compiler flags
